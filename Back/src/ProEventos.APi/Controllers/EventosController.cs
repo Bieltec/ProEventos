@@ -10,17 +10,16 @@ namespace ProEventos.APi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EventController : ControllerBase
+    public class EventosController : ControllerBase
     {
         private readonly DataContext _context;
-       public EventController(DataContext context){
+       public EventosController(DataContext context){
          _context = context;
        }    
         [HttpGet]
         public IEnumerable<Evento> Get(){
             return _context.Eventos;
         }
-
         [HttpGet("{id}")]
         public Evento Get(int id){
             return _context.Eventos.FirstOrDefault(_evento => _evento.EventoId == id);
